@@ -24,19 +24,14 @@ const AboutSection = () => {
           >
             <h3 className="text-xl font-semibold mb-4 text-highlight">Who I Am</h3>
             <div className="space-y-4 text-lightText/80">
-              <p>
-                I'm a passionate software developer with a strong foundation in web and application development. 
-                My journey in coding began with a curiosity about how websites work, which has now evolved into 
-                a deep expertise in full-stack development.
+              <p className="text-xl leading-relaxed">
+                Hi! I'm Duc Anh — a Computer Science student with a strong passion for building scalable, efficient systems.
+                I enjoy <span className="text-highlight font-semibold">developing web</span> and
+                <span className="text-highlight font-semibold"> mobile applications</span>, and exploring
+                <span className="text-highlight font-semibold"> cloud technologies</span>.
               </p>
-              <p>
-                I enjoy the challenge of creating intuitive, responsive interfaces that deliver exceptional user 
-                experiences while writing clean, maintainable code behind the scenes. I'm especially interested 
-                in building solutions that make a positive impact.
-              </p>
-              <p>
-                When I'm not coding, you can find me exploring new technologies, contributing to open-source 
-                projects, or learning about the latest trends in the tech industry.
+              <p className="text-xl leading-relaxed">
+                Outside of tech, you'll find me on the soccer field, lifting at the gym, or strategizing in Teamfight Tactics.
               </p>
             </div>
           </motion.div>
@@ -60,11 +55,11 @@ const AboutSection = () => {
                 <h5 className="text-base font-medium mb-2">Relevant Coursework:</h5>
                 <ul className="grid grid-cols-2 gap-2 text-sm text-lightText/70">
                   <li>Data Structures</li>
-                  <li>Algorithms</li>
-                  <li>Web Development</li>
-                  <li>Mobile App Development</li>
-                  <li>Database Systems</li>
-                  <li>Software Engineering</li>
+                  <li>Operating Systems</li>
+                  <li>Linear Algebra</li>
+                  <li>Discrete Math</li>
+                  <li>Probability</li>
+                  <li>Elements of Data Science</li>
                 </ul>
               </div>
             </div>
