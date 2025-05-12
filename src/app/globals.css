@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 229, 229, 229;
+  --background-start-rgb: 18, 18, 18;
+  --background-end-rgb: 26, 26, 46;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to right, 
+    rgb(var(--background-start-rgb)),
+    rgb(var(--background-end-rgb)));
+  scroll-behavior: smooth;
+}
+
+@layer components {
+  .section-container {
+    @apply w-full max-w-5xl mx-auto px-4 py-20;
+  }
+  
+  .btn-primary {
+    @apply bg-primary hover:bg-opacity-90 text-white font-semibold py-2 px-6 rounded-md transition duration-300;
+  }
+  
+  .nav-link {
+    @apply text-lightText hover:text-highlight transition duration-300;
+  }
+  
+  .tech-icon {
+    @apply w-16 h-16 p-3 bg-darkSecondary rounded-xl hover:bg-darkAccent transition duration-300;
+  }
+  
+  .form-input {
+    @apply w-full bg-darkSecondary text-lightText rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary;
+  }
+  
+  .card {
+    @apply bg-darkSecondary rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300;
+  }
+}
