@@ -25,7 +25,7 @@ const HeroSection = () => {
             <p className="text-lightText/70 text-lg mb-8 max-w-md">
               Building beautiful, functional digital experiences with modern web technologies.
             </p>
-            <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+            <Link href="/may_2025_resume.pdf" target="_blank" rel="noopener noreferrer">
               <button className="btn-primary">View Resume</button>
             </Link>
           </motion.div>
