@@ -3,15 +3,15 @@ import { motion } from 'framer-motion';
 
 const projects = [
   {
-    title: 'E-Commerce Dashboard',
-    description: 'A full-stack dashboard for e-commerce businesses with real-time analytics, inventory management, and order processing capabilities.',
-    image: '/projects/ecommerce.jpg',
+    title: 'Nail Technician Portfolio Full Stack Website',
+    description: 'A full-stack website for a nail technician to showcase their work and services, with a dashboard for managing appointments and a blog for sharing industry insights.',
+    image: '/projects/nailtech.png',
     technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Chart.js'],
     liveLink: 'https://example.com/ecommerce-live',
     githubLink: 'https://github.com/username/ecommerce-dashboard'
   },
   {
-    title: 'Task Management App',
+    title: 'Something related to AWS and cloud computing',
     description: 'A responsive web application for task management with features like drag-and-drop organization, priority setting, and team collaboration.',
     image: '/projects/taskapp.jpg',
     technologies: ['Next.js', 'TypeScript', 'Firebase', 'Tailwind CSS'],
@@ -19,20 +19,19 @@ const projects = [
     githubLink: 'https://github.com/username/task-management'
   },
   {
-    title: 'Weather Forecast PWA',
-    description: 'A progressive web app that provides real-time weather forecasts, location-based suggestions, and offline capabilities.',
-    image: '/projects/weather.jpg',
-    technologies: ['React', 'Redux', 'Weather API', 'PWA', 'Geolocation'],
-    liveLink: 'https://example.com/weather-pwa',
-    githubLink: 'https://github.com/username/weather-forecast'
+    
+    title: 'Sony Edge AI Hackathon – Urban Congestion Solution',
+    description: 'Placed 3rd in the Sony Edge AI Hackathon by building a real-time people counting system using YOLOv6 on an AIH-IVRW2 Edge AI Camera, with a Python-based web app recommending less crowded tourist spots to address urban congestion.',
+    technologies: ['YOLOv6', 'Python', 'HTML', 'Sony AIH-IVRW2', 'Computer Vision', 'REST API'],
+    image: '/projects/sonyaitrios.png',
+    liveLink: 'https://github.com/ducanhdang06/sony_aitrios',
   },
   {
-    title: 'Personal Finance Tracker',
-    description: 'An application to track personal finances with budget planning, expense categorization, and visual reports to analyze spending patterns.',
-    image: '/projects/finance.jpg',
-    technologies: ['Vue.js', 'Vuex', 'Node.js', 'MySQL', 'D3.js'],
-    liveLink: 'https://example.com/finance-tracker',
-    githubLink: 'https://github.com/username/finance-tracker'
+    title: 'Bone Marrow Survival Prediction',
+    description: 'Developed a machine learning model to predict patient survival after a bone marrow transplant using logistic regression and SVM, with a focus on preprocessing, evaluation, and performance metrics.',
+    technologies: ['Pandas', 'NumPy', 'Scikit-learn', 'Logistic Regression', 'Support Vector Machine', 'Matplotlib'],
+    image: '/projects/bonemarrow.png',
+    liveLink: 'https://colab.research.google.com/drive/1PAvPHebBZnnB-LW8tw_D8YuxCsgbfqKH?usp=sharing',
   }
 ];
 
@@ -74,11 +73,11 @@ const ProjectsSection = () => {
                 <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                 <p className="text-lightText/80 mb-4">{project.description}</p>
                 
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-3 mb-6">
                   {project.technologies.map((tech, i) => (
                     <span 
                       key={i}
-                      className="px-2 py-1 bg-darkAccent/30 rounded-md text-xs text-lightText/90"
+                      className="px-3 py-1 bg-darkAccent/20 rounded-lg text-base text-lightText/90 font-medium border border-darkAccent/40 shadow-sm"
                     >
                       {tech}
                     </span>
@@ -86,15 +85,7 @@ const ProjectsSection = () => {
                 </div>
               </div>
               
-              <div className="p-6 pt-0 flex space-x-4">
-                <a 
-                  href={project.githubLink} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="btn-primary bg-darkAccent hover:bg-darkAccent/90 text-sm"
-                >
-                  GitHub
-                </a>
+              <div className="p-6 pt-0 flex">
                 <a 
                   href={project.liveLink} 
                   target="_blank" 

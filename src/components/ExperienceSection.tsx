@@ -1,40 +1,61 @@
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+
+const HIGHLIGHT_KEYWORDS = [
+  "Selenium", "50+", "90%", "Dart-based UI", "Python API", "80%", "Python-based"
+];
+
+function highlightAchievement(text: string) {
+  const sorted = [...HIGHLIGHT_KEYWORDS].sort((a, b) => b.length - a.length);
+  const regex = new RegExp(sorted.map(k => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|'), 'g');
+  const parts = [];
+  let lastIndex = 0;
+  let match;
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+    parts.push(
+      <span key={match.index} className="text-highlight font-semibold">{match[0]}</span>
+    );
+    lastIndex = regex.lastIndex;
+  }
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+  return parts;
+}
 
 const experiences = [
   {
-    company: 'Tech Innovation Labs',
-    role: 'Software Development Intern',
-    period: 'May 2023 - August 2023',
-    url: 'https://example.com/tech-innovation',
+    company: 'FPT SmartCloud',
+    role: 'Software Engineer Intern',
+    period: 'May 2025 - Present',
+    url: 'https://fptsmartcloud.com/en/home/',
+    logo: '/logos/fptsmartcloud.png',
     achievements: [
-      'Developed and maintained responsive web applications using React.js and Node.js',
-      'Implemented RESTful API endpoints for data retrieval and manipulation',
-      'Collaborated with UX/UI designers to implement intuitive user interfaces',
-      'Participated in code reviews and implemented feedback to improve code quality'
+      "Incoming Software Engineer Intern for FPT SmartCloud for Summer 2025"
     ]
   },
   {
     company: 'University of Texas at Austin',
-    role: 'Research Assistant',
-    period: 'January 2023 - Present',
-    url: 'https://utexas.edu',
+    role: 'Teacher Assistant (Data Structures and Algorithms)',
+    period: 'August 2025 - Present',
+    url: 'https://www.cs.utexas.edu',
+    logo: '/logos/utcs.png',
     achievements: [
-      'Assisted in developing algorithms for data analysis in machine learning projects',
-      'Created visualization tools using D3.js to represent complex research data',
-      'Documented research findings and contributed to academic publications',
-      'Collaborated with faculty and graduate students on cutting-edge research projects'
+      "Incoming TA for CS314: Data Structures and Algorithms for Fall 2025"
     ]
   },
   {
-    company: 'CodePal Startup',
-    role: 'Frontend Developer',
-    period: 'September 2022 - December 2022',
-    url: 'https://example.com/codepal',
+    company: 'Gibtr (Startup)',
+    role: 'Software Engineer Intern',
+    period: 'April 2023 - April 2025',
+    url: 'https://www.trustpilot.com/review/gibtr.com',
+    logo: '/logos/gibtr.png',
     achievements: [
-      'Built interactive user interfaces for an educational coding platform',
-      'Implemented responsive design principles to ensure cross-device compatibility',
-      'Utilized modern JavaScript frameworks to create dynamic web components',
-      'Optimized application performance and reduced load times by 40%'
+      'Built a Python-based product fetcher using Selenium to extract pricing data from 50+ e-commerce websites, automating over 90% of manual entry and improving data accuracy across thousands of products.',
+      'Designed and implemented a full-stack tax calculator with a Dart-based UI and Python API, enabling users to view real-time total prices (including sales tax) for any U.S. zip code — cutting price lookup time by 80% and streamlining product processing.',
     ]
   }
 ];
@@ -64,16 +85,27 @@ const ExperienceSection = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <div className="md:flex md:justify-between md:items-start">
-                <div>
-                  <h3 className="text-xl font-semibold">{exp.role}</h3>
-                  <a 
-                    href={exp.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-primary hover:text-highlight transition duration-300"
-                  >
-                    {exp.company}
-                  </a>
+                <div className="flex items-center gap-3">
+                  {exp.logo && (
+                    <Image
+                      src={exp.logo}
+                      alt={exp.company + ' logo'}
+                      width={40}
+                      height={40}
+                      className="rounded-md bg-white p-1 object-contain"
+                    />
+                  )}
+                  <div>
+                    <h3 className="text-xl font-semibold">{exp.role}</h3>
+                    <a 
+                      href={exp.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-primary hover:text-highlight transition duration-300"
+                    >
+                      {exp.company}
+                    </a>
+                  </div>
                 </div>
                 <p className="text-lightText/70 mt-1 md:mt-0">{exp.period}</p>
               </div>
@@ -82,7 +114,7 @@ const ExperienceSection = () => {
                 {exp.achievements.map((achievement, i) => (
                   <li key={i} className="flex items-start">
                     <span className="text-highlight mr-2">›</span>
-                    <span className="text-lightText/80">{achievement}</span>
+                    <span className="text-lightText/80">{highlightAchievement(achievement)}</span>
                   </li>
                 ))}
               </ul>

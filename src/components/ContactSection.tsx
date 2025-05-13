@@ -5,7 +5,7 @@ import emailjs from '@emailjs/browser';
 interface FormData {
   name: string;
   email: string;
-  phone: string;
+  subject: string;
   message: string;
 }
 
@@ -13,7 +13,7 @@ const ContactSection = () => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
-    phone: '',
+    subject: '',
     message: ''
   });
   
@@ -32,15 +32,15 @@ const ContactSection = () => {
     try {
       // Replace these with your actual EmailJS service details
       await emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
+        'service_tuilc1f',
+        'template_9j9bn5c',
         {
           from_name: formData.name,
           from_email: formData.email,
-          from_phone: formData.phone,
+          subject: formData.subject,
           message: formData.message
         },
-        'YOUR_PUBLIC_KEY'
+        'BXnohnf_bUfvTgwVc'
       );
       
       setSubmitStatus('success');
@@ -48,7 +48,7 @@ const ContactSection = () => {
       setFormData({
         name: '',
         email: '',
-        phone: '',
+        subject: '',
         message: ''
       });
     } catch (error) {
@@ -115,15 +115,16 @@ const ContactSection = () => {
             </div>
             
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium mb-2">Phone Number</label>
+              <label htmlFor="subject" className="block text-sm font-medium mb-2">Subject</label>
               <input
-                type="tel"
-                id="phone"
-                name="phone"
-                value={formData.phone}
+                type="text"
+                id="subject"
+                name="subject"
+                required
+                value={formData.subject}
                 onChange={handleChange}
                 className="form-input"
-                placeholder="(123) 456-7890"
+                placeholder="Subject of your message"
               />
             </div>
             
@@ -137,7 +138,7 @@ const ContactSection = () => {
                 value={formData.message}
                 onChange={handleChange}
                 className="form-input resize-none"
-                placeholder="How can I help you?"
+                placeholder="What's on your mind?"
               ></textarea>
             </div>
             
@@ -168,11 +169,11 @@ const ContactSection = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             <p className="text-lightText/70 mb-3">Or reach out directly via:</p>
-            <a href="mailto:contact@ducanhdang.com" className="text-primary hover:text-highlight block mb-2 transition-colors">
-              contact@ducanhdang.com
+            <a href="mailto:ducanh06@utexas.edu" className="text-primary hover:text-highlight block mb-2 transition-colors">
+              duchanh06@utexas.edu
             </a>
-            <a href="tel:+1234567890" className="text-primary hover:text-highlight transition-colors">
-              (123) 456-7890
+            <a href="tel:+16262324625" className="text-primary hover:text-highlight block mb-2 transition-colors">
+              +1 626-232-4625
             </a>
           </motion.div>
         </div>
