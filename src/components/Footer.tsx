@@ -11,7 +11,7 @@ const Footer = () => {
               <span className="text-xl font-bold text-highlight">DAD.</span>
             </Link>
             <p className="mt-2 text-sm text-lightText/60">
-              Software Developer | Web & App Developer
+              Software Engineer | Web & App Developer
             </p>
           </div>
           
@@ -33,24 +33,6 @@ const Footer = () => {
               aria-label="LinkedIn"
             >
               <FaLinkedin size={20} />
-            </a>
-            <a 
-              href="https://twitter.com/username" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-lightText/70 hover:text-highlight transition-colors"
-              aria-label="Twitter"
-            >
-              <FaTwitter size={20} />
-            </a>
-            <a 
-              href="https://instagram.com/username" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-lightText/70 hover:text-highlight transition-colors"
-              aria-label="Instagram"
-            >
-              <FaInstagram size={20} />
             </a>
           </div>
         </div>

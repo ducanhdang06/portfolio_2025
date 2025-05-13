@@ -67,12 +67,14 @@ const TechSection = () => {
               transition={{ duration: 0.3, delay: index * 0.05 }}
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
             >
+              <span
+                className="pointer-events-none z-20 absolute left-1/2 -top-4 -translate-x-1/2 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs text-center bg-darkSecondary px-3 py-1 rounded shadow-lg border border-darkAccent/30 text-lightText font-medium whitespace-nowrap"
+              >
+                {tech.name}
+              </span>
               <div className="text-primary group-hover:text-highlight transition-colors duration-300">
                 {tech.icon}
               </div>
-              <span className="absolute -bottom-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs text-center">
-                {tech.name}
-              </span>
             </motion.div>
           ))}
         </div>
